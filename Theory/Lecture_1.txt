@@ -1,0 +1,54 @@
+What is Emmet
+
+Emmet is a set of plug-ins for text editors that allows high speed coding and editing in HTML, XML, and other strucutred 
+code formats. Emmet is a word that originally meant ant, a small insect that can carry over 50 times of its weight.
+
+
+Difference between a Library and Framework?
+
+Library provides developer with predefined functions and classes to make their work easier and boost the development process
+Framework on the other hand is the foundation upon which developer build applications for specific platforms
+
+
+What is CDN? Why do we use it?
+
+CDN stands for content delivery network it is network of servers that distributes the content from origin server throughout
+the world by caching content close to the where each end user is accessing the internet via internet-enabled devices.
+
+
+Why is React known as React?
+
+React is named as react because of it's ability to react to changes in data. when data in react components changes it will 
+automatically re-render
+
+
+What is crossorigin in script tag?
+
+The crossorigin attribute sets the mode of the requests to an HTTP CORS requests.
+Web pages often make requests to load resources from the other servers, Here is where CORS comes in. 
+A crossorigin request is request for a resource from another domain.
+
+
+What is diference between React and ReactDOM
+
+React is Library for creating views and ReactDOM is library to actually render UI in the browser.
+
+
+What is difference between react.development.js and react.production.js files via CDN?
+
+react.development.js provides us extra features like debugging, hmr(Hot module reloading) and lots of other stuffs that you might 
+use while developing app with the help of bundlers like webpack, parcel, vite. This bundelers bundles and minifies our code to be 
+deployed on production
+
+These minified files will be deployed on production which removes lots of unnecessary files which will not be used by our app
+for this we have react.production.js to make our our much faster(as bundlers and lots of other files have done there work and are not required now)
+
+
+What is async and defer?
+
+These are the attributes added while loading the scripts in our HTML page 
+
+In async the script code is loaded parallely along with the HTML parsing and once the loading is done it stops the HTML parsing 
+and will start executing the script fetched 
+In Defer the script code is loaded parallely along with the HTML parsing and once the HTML parsing is completed then only it will start 
+executing the script fetched

@@ -1,0 +1,122 @@
+What is `NPM`?
+npm is the software package manager and installer 
+
+
+- What is `Parcel/Webpack`? Why do we need it?
+
+Parcel and Webpack are the bundlers that combines many javascript codes files into  a single one that is production ready 
+loadable in browser, these bbundlers do lots of things like 
+File Watchers Algorithm in C++
+Bundling
+Hot Module Replacement
+Image optimisation
+minifies our code
+caching while development
+helps run https on local dev
+manages transitive dependencies
+CLean our code 
+Dev and production build 
+Compression 
+compatible with oder versions
+Manages Port Number
+Consistent Hashing Algorithms 
+
+
+What is `.parcel-cache`
+
+.parcel-cache folder stores information about our project project when parcel builds it, so that when it re-builds it doesn't have 
+to re-parse and re-analyse everything from scratch
+
+
+What is `npx` ?
+
+npm is node package execute and it comes with npm, It is a npm package that execute any pacakge that we want from npm registry 
+even without installing that pacakge
+
+
+What is difference between `dependencies` vs `devDependencies`
+
+devDependencies are the modules which are only required during development, while the dependencies are the modules which are
+also required at the run time of the application 
+
+
+What is Tree Shaking?
+
+Tree Shaking is a term commonly used in javascript context for dead code elimination. 
+
+
+What is Hot Module Replacement?
+
+HMR exchanges, adds, or removes modules while an application is running,  without doing a full reload
+
+
+List down your favourite 5 superpowers of Parcel and describe any 3 of them in your
+own words.
+
+File Watchers Algorithm in C++
+Bundling
+Hot Module Replacement
+Image optimisation
+minifies our code
+caching while development
+
+File Watchers Algorithm in C++: This keeps a watch on each and every file and whenever any change is made it automatically
+restart the server and do HMP
+
+Bundling: It bundles all are files into a common JS file which will be executed by browser
+
+caching while development: whenever a new build is creted it store information of it so that whenever it rebuild it doesn't
+have to re-analyse and re-parse everything form scratch
+
+
+What is `.gitignore`? What should we add and not add into it?
+
+.gitignore is file which keeps the track of the file which will not be pushed to the git origin
+we should not add the files in gitignore which cannot be regenerated automatically on the server 
+and only add files which can be regenerated and should not be pushed to the origin (The files are auto generated using package.json)
+
+
+What is the difference between `package.json` and `package-lock.json`
+
+package.json stores file is the core of any node project. It stores the critical metadata about a project that is necessary
+before releasing  it to npm, it also specifies the fucntional properties of a project that npm utilises.
+
+package-lock.json is a lock file that holds the information on the dependencies or pacakges installed for a node.js project 
+including their exact version numbers
+
+
+Why should I not modify `package-lock.json`?
+
+It is a generated file and is not designed to be manually edited. Its purpose is to track the entire tree of dependencies 
+(including dependencies of dependencies) and the exact version of each dependency. You should commit package-lock. 
+json to your code repository.
+
+
+
+What is `node_modules` ? Is it a good idea to push that on git?
+
+node_modules is cache for the external modules that our project depends upon. when we do npm install 'package_name'
+the packages are downloaded from web and copied in the node folder and NodeJS is trained to look for them whenever we import 
+them even without a specific path
+
+It is very very bad idea to push node_modules as it contains lots of dependencies and even transitive dependencies that is very huge in size
+and these dependencies can easily generated on the server with the help of the package.json so there is no need to push it.
+
+
+What is the `dist` folder?
+
+dist stands for distributables it contains the minified version of our source code into HTML, CSS, JS files with some map files that contains
+some helper code. This is the actual code that will be used on production web applications, Along with the minified code, the /dist folder also 
+comprises of all the compiled modules that may or may not be used with other systems
+
+
+What is Browserslist?
+
+Browserslist is a tool that allows specifying which browsers should be supported in your frontend app by specifying "queries" in a config file.
+It's used by frameworks/libraries such as React, Angular and Vue, but it's not limited to them
+
+
+^ - caret and ~ - tilda
+^ caret specifies that if any minor version update of the package is available use that e.g 2.3 -> 2.4 
+
+~ tilda specifies if major version update of the package is available then use that e.g. 2.4 -> 3.1

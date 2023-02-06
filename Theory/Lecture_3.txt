@@ -1,0 +1,55 @@
+What is JSX?
+JSX stands for JavaScript XML.
+JSX allows us to write HTML like syntax in React.
+JSX makes it easier to write and add HTML in React.
+
+
+Role of type attribute in script tag? What options can I use there
+It Specifies the media type script of the script 
+
+text/javascript (this is default)
+text/ecmascript
+application/ecmascript
+application/javascript
+
+
+Behind the Scenes of JSX
+
+To make easy coding react introduced JSX. It is an JavaScript extension 
+where we can embed valid JavaScript objects into HTML elements. JSX makes Code
+easier to read and understand. Usually, HTML and JavaScript is written separately but 
+react creates components that contain both HTML and JavaScript
+
+const age = 20;
+const ele = <h1> I'm {age} years old </h1>;
+
+Whenever a code is written in JSX, babel transcompile the code into JavaScript code.
+
+
+Babel and Parcel Role in JSX
+
+To compile JSX into React.createElement API calls
+To compile bleeding-edge JavaScript into something that most browsers can understand
+
+Parcel supports JSX automatically when it detects you are using React. If you’re using React 
+17 or later, it also automatically enables the modern JSX transform, which means you don't 
+even need to import React for JSX to work, as you can see in App.js in the above example.
+
+
+Components
+
+Components are the building blocks of the react they are independent and reusable bits of code.
+They serves the same purpose as JavaScript functions but work in isolation and return JSX which
+is then converted to HTML
+
+functional components
+
+Functional components are basic JavaScript functions. These are typically arrow functions but
+can also be created with the regular function keyword.
+
+
+Composing Components
+
+Functional components are basic JavaScript functions. These are typically arrow 
+functions but can also be created with the regular function keyword.
+

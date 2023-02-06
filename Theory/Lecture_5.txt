@@ -1,0 +1,22 @@
+Difference between named export, default export and * as export
+
+Named export is used when we are exporting multiple things from a file 
+then all the things will be exported as object and can be destructured to use them individually
+
+default export is used when we are exporting only one thing from the file 
+and that thing can be used as it is
+
+* as Name export is used when we are exporting everyting in the file wiht the help of Name. 
+we can use each and every exported component and function
+
+Importance of Config.js
+we don't have to redeclare same data and variables we can declare it in one place and export it 
+it can be reused throughout the project
+
+
+What are hooks
+React Hooks are simple JavaScript functions that we can use to isolate the reusable part
+from a functional component. Hooks can be stateful and can manage side-effects. React 
+provides a bunch of standard in-built hooks: 
+
+useState : To manage states. Returns a stateful value and an updater function to update it.
