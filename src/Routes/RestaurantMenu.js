@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router"
-import Skeleton from "../src/Components/Skeleton"
-import { IMG_CDN_URL } from "../src/Constants"
+import Skeleton from "../Components/Skeleton"
+import { IMG_CDN_URL } from "../Constants"
 
 const RestaurantMenu = () => {
   const {id} = useParams()
@@ -16,7 +16,6 @@ const RestaurantMenu = () => {
     const json = await data.json()
     setRestaurantData(json?.data)
   }
-  console.log(restaurantData)
   if(!restaurantData) return <Skeleton />
   return (
     <div className="restaurantData-page">

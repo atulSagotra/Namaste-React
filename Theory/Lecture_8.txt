@@ -1,0 +1,51 @@
+> How do you create Nested Routes react-router-dom cofiguration
+
+  Nested Routes are created by providing the children property to the elements of the children
+
+>Read abt createHashRouter, createMemoryRouter from React Router docs.
+
+  <HashRouter> is for use in web browsers when the URL should not (or cannot) be sent 
+  to the server for some reason. This may happen in some shared hosting scenarios where 
+  you do not have full control over the server. In these situations, <HashRouter> makes it
+  possible to store the current location in the hash portion of the current URL, so it is 
+  never sent to the server.
+
+  A <MemoryRouter> stores its locations internally in an array. Unlike <BrowserHistory> and 
+  <HashHistory>, it isn't tied to an external source, like the history stack in a browser. 
+  This makes it ideal for scenarios where you need complete control over the history stack, 
+  like testing.
+
+  <MemoryRouter initialEntries> defaults to ["/"] (a single entry at the root / URL)
+  <MemoryRouter initialIndex> defaults to the last index of initialEntries
+
+
+>What is the order of life cycle method calls in Class Based Components
+
+ Constructor -> render -> componentDidMount -> render
+
+
+>Why do we use componentDidMount?
+  componentDidMount method is used for handling all network requests and setting up 
+  subscriptions during the mounting phase. It is safe to use async/await with the 
+  componentDidMount() method
+
+
+>Why do we use componentWillUnmount? Show with example
+
+  his method is called during the unmounting phase of the React Lifecycle, i.e., 
+  before the component is destroyed or unmounted from the DOM tree. This method is 
+  majorly used to cancel all the subscriptions that were previously created in the 
+  componentWillMount method
+
+
+>(Research) Why do we use super(props) in constructor?
+
+  Super() function is to call the constructor of the parent class. 
+  It is used when we need to access a few variables in the parent class
+
+
+>(Research) Why can't we have the callback function of useEffect async?
+
+  Because React's useEffect hook expects a cleanup function returned from it which is 
+  called when the component unmounts. Using an async function here will cause a bug as 
+  the cleanup function will never get called
