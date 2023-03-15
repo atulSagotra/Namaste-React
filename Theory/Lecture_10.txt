@@ -1,0 +1,25 @@
+
+Explore all the ways of writing css.
+How do we configure tailwind?
+In tailwind.config.js, what does all the keys mean (content, theme, extend, plugins)?
+
+
+The content section of your tailwind.config.js file is where you configure the paths to all 
+of your HTML templates, JavaScript components, and any other source files that contain Tailwind class names
+
+
+The theme section of your tailwind.config.js file is where you define your project's color palette, type scale, 
+fonts, breakpoints, border radius values, and more.
+
+
+Tailwind CSS is a utility-first CSS framework that provides official plugins for popular features. Tailwind CSS 
+Forms is a plugin that improves the default styling of form elements and makes it easier to customize them using 
+utility classes.
+
+
+Why do we have .postcssrc file?
+
+
+PostCSS provides a large ecosystem of plugins to perform different functionalities like linting, minifying, 
+inserting vendor prefixes, and many other things. Despite its name, it is neither a post-processor nor a pre-processor, 
+it is just a transpiler that turns a special PostCSS plugin syntax into a Vanilla CSS
