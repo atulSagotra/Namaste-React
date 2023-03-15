@@ -3,13 +3,15 @@ import Header from "./src/Components/Header";
 import "./App.css";
 import Footer from "./src/Components/Footer";
 import RestaurantList from "./src/Components/RestaurantList";
-import { useState } from "react";
+import { lazy, Suspense, useState } from "react";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 
-import RestaurantMenu from "./src/Routes/RestaurantMenu";
-import About from "./src/Routes/About";
 import ErrorPage from "./src/Components/ErrorPage";
 import Profile from "./src/Components/Profile";
+import About from "./src/Components/About";
+import RestaurantMenu from "./src/Components/RestaurantMenu";
+
+const Instamart = lazy(() => import("./src/Components/Instamart"));
 
 const App = () => {
 	return (
@@ -28,16 +30,23 @@ const appRoutes = createBrowserRouter([
 			{
 				path: "/",
 				element: <RestaurantList />,
-				
 			},
 			{
 				path: "/about",
 				element: <About />,
-				children: [{ path: "profile" , element: <Profile /> }],
+				children: [{ path: "profile", element: <Profile /> }],
 			},
 			{
 				path: "/restaurant/:id",
 				element: <RestaurantMenu />,
+			},
+			{
+				path: "/instamart",
+				element: (
+					<Suspense fallback={<h1>Loading...</h1>}>
+						<Instamart />
+					</Suspense>
+				),
 			},
 		],
 	},

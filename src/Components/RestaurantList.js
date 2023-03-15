@@ -1,37 +1,35 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { filteredRestaurantData } from "../utils/helpers";
+import useOnline from "../utils/useOnline";
+import useRestaurantList from "../utils/useRestaurantList";
 import RestaurantCard from "./RestaurantCard";
 import Skeleton from "./Skeleton";
 
 const RestaurantList = ({}) => {
-	const [allRestaurant, setAllRestaurant] = useState([]);
+	const allRestaurant = useRestaurantList();
+
 	const [filteredRestaurant, setFilteredRestaurant] = useState([]);
+	const isOnline = useOnline();
 
 	useEffect(() => {
-		fetchRestaurantList();
-	}, []);
+		setFilteredRestaurant(allRestaurant);
+	}, [allRestaurant]);
 
-	const fetchRestaurantList = async () => {
-		const data = await fetch(
-			"https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.7040592&lng=77.10249019999999&page_type=DESKTOP_WEB_LISTING"
-		)
-			.then((res) => res.json())
-			.catch((err) => console.log(err));
-		console.log("fetch:", data?.data?.cards[2].data?.data?.cards);
-		setAllRestaurant(data?.data?.cards[2].data?.data?.cards);
-		setFilteredRestaurant(data?.data?.cards[2].data?.data?.cards);
-	};
+	if (!isOnline) return <h1>Offline, Please check your internet connection</h1>;
+
 	if (allRestaurant?.length === 0) return <Skeleton />;
 	return (
-		<>
+		<div className="flex flex-col items-center">
 			<input
 				type="text"
-				className="search-input-restaurant"
+				className="w-1/2 m-4 p-1 text-center"
 				placeholder="Search Restaurant Here..."
 				onChange={(e) => {
 					if (e.target.value) {
-						const filteredRestaurant = allRestaurant.filter((res) =>
-							res.data.name.toLowerCase().includes(e.target.value.toLowerCase())
+						const filteredRestaurant = filteredRestaurantData(
+							e.target.value,
+							allRestaurant
 						);
 						setFilteredRestaurant(filteredRestaurant);
 					} else {
@@ -39,7 +37,7 @@ const RestaurantList = ({}) => {
 					}
 				}}
 			/>
-			<div className="restaurnat-container">
+			<div className="flex flex-wrap justify-center">
 				{filteredRestaurant?.length === 0 ? (
 					<>
 						<h1>OOPS !</h1>
@@ -57,7 +55,7 @@ const RestaurantList = ({}) => {
 					))
 				)}
 			</div>
-		</>
+		</div>
 	);
 };
 export default RestaurantList;

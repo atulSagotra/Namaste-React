@@ -1,8 +1,8 @@
 import { render } from "@testing-library/react";
 import React from "react";
 import { Outlet } from "react-router-dom";
-import Profile from "../Components/Profile";
-import ProfileClass from "../Components/ProfileClass";
+import Profile from "./Profile";
+import ProfileClass from "./ProfileClass";
 
 class About extends React.Component {
 	constructor(props) {

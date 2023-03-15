@@ -1,9 +1,8 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Header = () => {
 	return (
-		<div className="header">
+		<div className="flex py-1 justify-between shadow-md px-1 items-center">
 			<Link to={"/"}>
 				<img
 					src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Atul_logo.png"
@@ -12,7 +11,10 @@ const Header = () => {
 				/>
 			</Link>
 
-			<ul className="header-ul">
+			<ul className="flex gap-x-2">
+				<li>
+					<Link to={"/instamart"}>Instamart</Link>
+				</li>
 				<li>
 					<Link to={"/about"}>About Us</Link>
 				</li>

@@ -1,10 +1,8 @@
-import { useState } from "react";
-import { useParams } from "react-router";
-import { IMG_CDN_URL } from "../Constants";
+import { IMG_CDN_URL } from "../utils/constants";
 
 const RestaurantCard = ({ restaurantData }) => {
 	return (
-		<div className="restaurnat-card">
+		<div className="w-[200px] h-[400px] p-1 m-1 shadow-md">
 			<img
 				src={IMG_CDN_URL + restaurantData.cloudinaryImageId}
 				alt="restaurant_img"

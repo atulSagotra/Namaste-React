@@ -1,6 +1,6 @@
 const Skeleton = () => {
 	return (
-		<div className="restaurnat-container">
+		<div className="flex flex-wrap justify-center">
 			{Array(10)
 				.fill("")
 				.map((e, index) => (

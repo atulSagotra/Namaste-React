@@ -1,0 +1,61 @@
+When and why do we need lazy()?
+
+  It is used when we don't want some component js file to load on initial render rather we prefer it to load when component
+  is rendered
+  React.lazy() allows developers to easily create components with dynamic imports and render them as normal components.
+  When the component is rendered, it will automatically load the bundle that contains the rendered component.
+
+  You need to provide a single input parameter to call React.lazy(). It accepts a function as an input parameter, and
+  that function should return a promise after loading the component using import(). Finally, the returned promise from 
+  React.lazy() will give you a module with a default export containing the React component.
+
+
+What is suspense?
+
+  Suspense lets your components “wait” for something before they can render
+  const resource = fetchProfileData();
+
+  function ProfilePage() {
+    return (
+      <Suspense fallback={<h1>Loading profile...</h1>}>
+        <LazyComponent />
+      </Suspense>
+    )
+  }
+
+
+Why we got this error : A component suspended while responding to synchronous input. This will cause the UI to be replaced with a loading indicator. To fix, updates that suspend should be wrapped with startTransition? How does suspense fix this error?
+
+
+Advantages and disadvantages of using this code splitting pattern?
+
+  Code splitting decreases the amount of data that needs to be downloaded for the initial view to load at the cost of 
+  increasing load time for each feature (page?, opened panel?) that has assets (code, images, etc.) that are not in the 
+  initially downloaded data.
+  Therefore, the cons would be that features not in the initial download may have slightly higher load times, and that
+  extra effort needs to be made to minimize those load times.
+
+  However, the alternative, which is not code splitting, is that the initial load takes longer. Code splitting should 
+  really only be considered if the initial load time is taking too long.
+
+  Bundling is great, but as your app grows, your bundle will grow too. Especially if you are including large third-party
+  libraries. You need to keep an eye on the code you are including in your bundle so that you don’t accidentally make it
+  so large that your app takes a long time to load.
+
+  To avoid winding up with a large bundle, it’s good to get ahead of the problem and start “splitting” your bundle. 
+  Code-Splitting is a feature supported by bundlers like Webpack, Rollup and Browserify (via factor-bundle) which can 
+  create multiple bundles that can be dynamically loaded at runtime.
+
+  Code-splitting your app can help you “lazy-load” just the things that are currently needed by the user, which can 
+  dramatically improve the performance of your app. While you haven’t reduced the overall amount of code in your app, 
+  you’ve avoided loading code that the user may never need, and reduced the amount of code needed during the initial load.
+
+
+When do we and why do we need suspense?
+
+  It lets data fetching libraries deeply integrate with React. If a data fetching library implements Suspense support,
+  using it from React components feels very natural.
+  It lets you orchestrate intentionally designed loading states. It doesn’t say how the data is fetched, but it lets 
+  you closely control the visual loading sequence of your app.
+  It helps you avoid race conditions. Even with await, asynchronous code is often error-prone. Suspense feels more 
+  like reading data synchronously — as if it were already loaded.

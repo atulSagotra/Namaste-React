@@ -1,29 +1,6 @@
-.header {
-  padding: 0 1rem;
-  border-bottom: 2px solid #eeeeee;
-  display: flex;
-  justify-content: space-between;
-}
-.header-ul {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
-}
-.search-input-restaurant {
-  width: 50%;
-  margin: 1rem;
-  padding: 1rem;
-}
-.restaurnat-card{
-  border: 1px solid #eeeeee;
-  margin: 1rem;
-  padding: 1rem;
-  max-width: min-content;
-}
-.restaurnat-container {
-  display: flex;
-  flex-wrap: wrap;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 .skeleton {
   width: 200px;
   height: 250px;
@@ -40,17 +17,6 @@
   background-color: black;
   align-items: center;
   text-align: center;
-}
-a {
-  text-decoration: none;
-  color: #000;
-}
-.restaurant-page {
-  margin: 1rem;
-  display: flex;
-}
-.restaurant-image {
-  margin: 1rem;
 }
 .error-page {
   width: 100%;
