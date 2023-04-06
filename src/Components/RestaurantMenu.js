@@ -1,45 +1,53 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router";
-import Skeleton from "../Components/Skeleton";
+import { useParams } from "react-router-dom";
 import { IMG_CDN_URL } from "../utils/constants";
 import useRestaurant from "../utils/useRestaurant";
+import { useDispatch } from "react-redux";
+import { addItem } from "../store/cartSlice";
+import Skeleton from "./Skeleton";
 
 const RestaurantMenu = () => {
-	const { id } = useParams();
+  const { resId } = useParams();
 
-	const restaurantData = useRestaurant(id);
+  const restaurant = useRestaurant(resId);
 
-	if (!restaurantData) return <Skeleton />;
-	return (
-		<div className="restaurantData-page">
-			{!restaurantData ? (
-				<Skeleton />
-			) : (
-				<div className="flex m-4">
-					<div>
-						<h2>{restaurantData?.name}</h2>
-						<img
-							src={IMG_CDN_URL + restaurantData?.cloudinaryImageId}
-							width="500px"
-							height="200px"
-							alt="res_image"
-						/>
-						<h3>{restaurantData?.area}</h3>
-						<h3>{restaurantData?.city}</h3>
-						<h3>{restaurantData?.avgRating} stars</h3>
-						<h3>{restaurantData?.costForTwoMsg}</h3>
-					</div>
-					<div className="m-4">
-						<h1>Menu</h1>
-						<ul>
-							{Object.values(restaurantData?.menu?.items).map((item) => (
-								<li key={item.id}>{item.name}</li>
-							))}
-						</ul>
-					</div>
-				</div>
-			)}
-		</div>
-	);
+  const dispatch = useDispatch();
+
+  const addFoodItem = (item) => {
+    dispatch(addItem(item));
+  };
+
+  return !restaurant ? (
+    <Skeleton />
+  ) : (
+    <div className="flex">
+      <div>
+        <h1>Restraunt id: {resId}</h1>
+        <h2>{restaurant?.name}</h2>
+        <img src={IMG_CDN_URL + restaurant?.cloudinaryImageId} />
+        <h3>{restaurant?.area}</h3>
+        <h3>{restaurant?.city}</h3>
+        <h3>{restaurant?.avgRating} stars</h3>
+        <h3>{restaurant?.costForTwoMsg}</h3>
+      </div>
+      <div className="p-5">
+        <h1>Menu</h1>
+        <ul data-testid="menu">
+          {Object.values(restaurant?.menu?.items).map((item) => (
+            <li key={item.id}>
+              {item.name} -{" "}
+              <button
+                data-testid="addBtn"
+                className="p-1 bg-green-50"
+                onClick={() => addFoodItem(item)}
+              >
+                Add
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
 };
+
 export default RestaurantMenu;

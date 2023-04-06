@@ -1,0 +1,17 @@
+
+What is prop drilling?
+
+Prop drilling means when we have to pass the props to the n number components in the hierarchy to make to availabe to the 
+n'th child 
+
+What is lifting the state up?
+By lifting the state up we mean to move the state to the parent and to pass the control to the parent component 
+
+What is Context Provider and Context Consumer?
+
+Every Context object comes with a Provider React component that allows consuming components to subscribe to context 
+changes. The Provider component accepts a value prop to be passed to consuming components that are descendants of this 
+Provider. One Provider can be connected to many consumers.
+
+If you don’t pass a value to the provider does it take the default value?
+Yes it takes the default value
